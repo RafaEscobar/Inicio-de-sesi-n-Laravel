@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\UsuariosController;
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -9,6 +11,12 @@ Route::view('/', 'welcome');
 Route::view('login/', 'login')->name('login')->middleware('guest');
 // Vista de perfil
 Route::view('profile/', 'perfil')->middleware('auth');
+
+Route::view('registro/', 'createAcount');
+
+Route::controller(UsuariosController::class)->group(function(){
+    Route::post('usuarios/usuario', 'store')->name('usuarios.store');
+});
 
 // Envio
 Route::post('login', function(){
@@ -21,3 +29,4 @@ Route::post('login', function(){
 
     return redirect('/');
 });
+

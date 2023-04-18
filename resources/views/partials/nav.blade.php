@@ -7,6 +7,7 @@
           @guest
           {{-- Si no estas autenticado --}}
           <a class="nav-link text-white" href="/login">Inicio de sesion</a>
+          <a class="nav-link text-white" href="/registro">Registro</a>
           @else
           {{-- Si si estas autenticado: --}}
           <a class="nav-link text-white" href="/profile">Perfil</a>
